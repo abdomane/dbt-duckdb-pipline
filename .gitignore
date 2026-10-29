@@ -15,3 +15,6 @@ wheels/
 Data/
 *.duckdb
 Logs/
+
+#dbt generated files
+.user.yml
