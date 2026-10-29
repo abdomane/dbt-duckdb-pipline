@@ -10,8 +10,13 @@ models:
     columns:
       - name: job_id
         description: The unique identifier for the job posting
+        tests:
+          - unique
+          - not_null
       - name: job_title
         description: The title of the job posting
+        tests:
+          - not_null
       - name: company_name
         description: The name of the company posting the job
       - name: job_location
@@ -36,10 +41,16 @@ models:
     columns:
       - name: month
         description: The month in which the job postings were searched
+        tests:
+          - not_null
       - name: role
         description: Search role or term used to find the job postings
+        tests:
+          - not_null
       - name: postings
         description: The number of job postings in that month
+        tests:
+          - not_null
 
   - name: top_locations
     description: A model that aggregates job postings by location
@@ -50,8 +61,13 @@ models:
     columns:
       - name: job_location
         description: The location of the job posting
+        tests:
+          - unique
+          - not_null
       - name: postings
         description: The number of job postings in that location
+        tests:
+          - not_null
 
   - name: monthly_summary
     description: Monthly summary of job postings; one row per month.
@@ -62,9 +78,18 @@ models:
     columns:
       - name: month
         description: Year and month of the summary.
+        tests:
+          - not_null
+          - unique
       - name: total_postings
         description: All postings that month (summed from jobs_per_month).
+        tests:
+          - not_null
       - name: remote_postings
         description: Postings flagged remote that month.
+        tests:
+          - not_null
       - name: pct_remote
         description: Share of the month's postings flagged remote, percent.
+        tests:
+          - not_null
