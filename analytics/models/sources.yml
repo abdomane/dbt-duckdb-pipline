@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw
+    tables:
+      - name: job_postings
+        description: Raw data from the job postings source
+        config:
+          external_location: "../data/raw/raw_job_postings*.parquet"
