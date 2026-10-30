@@ -18,5 +18,3 @@ Logs/
 
 #dbt generated files
 .user.yml
-assets/
-info_schema/
